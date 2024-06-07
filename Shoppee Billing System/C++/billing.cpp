@@ -32,27 +32,27 @@ void shopping :: menu(){
     cout<<"\t\t\t\t                               \n";
     cout<<"\t\t\t\t_______________________________\n";
     cout<<"\t\t\t\t                               \n";
-    cout<<"\t\t\t\t| 1) Administrator |\n";
-    cout<<"\t\t\t\t|                  |\n";
-    cout<<"\t\t\t\t| 2) Buyer         |\n";
-    cout<<"\t\t\t\t|                  |\n";
-    cout<<"\t\t\t\t| 3) Exit          |\n";
-    cout<<"\t\t\t\t|                  |\n";
-    cout<<"\t\t\t\t Please Select : ";
+    cout<<"\t\t\t\t   | 1) Administrator |\n";
+    cout<<"\t\t\t\t   |                  |\n";
+    cout<<"\t\t\t\t   | 2) Buyer         |\n";
+    cout<<"\t\t\t\t   |                  |\n";
+    cout<<"\t\t\t\t   | 3) Exit          |\n";
+    cout<<"\t\t\t\t   |                  |\n";
+    cout<<"\t\t\t\t   Please Select : ";
     cin>>choice;
     switch(choice){
         case 1 : 
-        cout<<"\t\t\t Please Login!\n";
-        cout<<"\t\t\t Enter Email \n";
+        cout<<"\t\t\t\t   Please Login!\n";
+        cout<<"\t\t\t\t   Enter Email ";
         cin>>email;
-        cout<<"\t\t\t Password     \n";
+        cout<<"\t\t\t\t   Password    ";
         cin>>password;
 
         if(email=="abc@gmail.com" && password=="abc@123"){
             administrator();
         }
         else{
-            cout<<"Invalid email/password";
+            cout<<"\t\t\t\tInvalid email/password\n";
         }
 
         case 2:
@@ -86,7 +86,7 @@ void shopping :: administrator(){
     cout<<"\n\t\t\t|                              |";
     cout<<"\n\t\t\t|______4) Back to main menu____|";
 
-    cout<<"Please Enter your Choice!!";
+    cout<<"\n\t\t\t Please Enter your Choice : ";
     cin>>choice;
     switch(choice){
         case 1: 
@@ -110,14 +110,14 @@ void shopping :: administrator(){
 void shopping :: buyer(){
     m:
     int choice;
-    cout<<"\t\t\t   Buyer  \n";
-    cout<<"\t\t\t _________\n";
-    cout<<"\t\t\t                  \n";
-    cout<<"\t\t\t  1)Buy Product   \n";
-    cout<<"\t\t\t                  \n";
-    cout<<"\t\t\t  2)Go Back       \n";
+    cout<<"\t\t\t\t\t   Buyer  \n";
+    cout<<"\t\t\t\t\t _________\n";
+    cout<<"\t\t\t\t\t                  \n";
+    cout<<"\t\t\t\t\t  1)Buy Product   \n";
+    cout<<"\t\t\t\t\t                  \n";
+    cout<<"\t\t\t\t\t  2)Go Back       \n";
 
-    cout<<"Enter your Choice: ";
+    cout<<"\t\t\t\t\t  Enter your Choice: ";
     cin>>choice;
 
     switch (choice)
@@ -145,13 +145,13 @@ void shopping :: add(){
     string n;                   //product_name
 
     cout<<"\n\n\t\t\t Add new Product";
-    cout<<"\n\n\t Product Code of the Product";
+    cout<<"\n\n\t\t\t Product Code of the Product : ";
     cin>>pcode;
-    cout<<"\n\n\t Name of the Product";
+    cout<<"\n\n\t\t\t Name of the Product : ";
     cin>>pname;
-    cout<<"\n\n\t Price of the Product";
-    cin>>pname;
-    cout<<"\n\n\t Discount on the Product";
+    cout<<"\n\n\t\t\t Price of the Product : ";
+    cin>>price;
+    cout<<"\n\n\t\t\t Discount on the Product : ";
     cin>>dis;
 
     // Now we have to open a file to store the product details, because add() func is used by the admin
@@ -282,12 +282,12 @@ void shopping :: rem(){
 void shopping :: list(){
     fstream data;
     data.open("database.txt",ios::in);
-    cout<<"\n\n|____________________________\n";
-    cout<<"Product No. \t\t Name \t\t Price \n";
-    cout<<"\n\n|____________________________\n";
+    cout<<"\n\n_________________________________\n";
+    cout<<"| Product No. \t Name \t  Price |\n";
+    cout<<"|_______________________________|\n";
     data>>pcode>>pname>>price>>dis;
     while(!data.eof()){
-        cout<<pcode<<"\t\t"<<pname<<"\t\t"<<price<<"\n";
+        cout<<"\t"<<pcode<<"\t"<<pname<<"\t"<<price<<"\n";
         data>>pcode>>pname>>price>>dis;
     }
     data.close();
@@ -300,7 +300,7 @@ void shopping :: receipt(){
     int arrq[100];      //array for multiple product quantities
     char choice;
     int c=0;            //count variable 
-    float amount;
+    float amount=0;
     float dis=0;        //discount variable 
     float total=0;
     
@@ -333,13 +333,14 @@ void shopping :: receipt(){
                     cout<<"\n\n Duplicate product Code. Please try again!!";
                     goto m;
                 }
-                c++;
-                cout<<"\n\n Do you want to try another product ? If yes then press y else no";
             }
+            c++;
+            cout<<"\n\n Do you want to try another product ? If yes then press y else no : ";
+            cin>>choice;
         }
         while(choice=='y');
 
-        cout<<"\n\n\t\t\t_______________RECEIPT_________________\n";
+        cout<<"\n\n\t\t__________________________RECEIPT______________________\n";
         cout<<"\n Product No. \t Product Name \t Product Quantity \t Price \t Amount \t Discount \n";
         
         for (int i=0;i<c;i++){
@@ -357,8 +358,8 @@ void shopping :: receipt(){
         }
         data.close();
     }
-    cout<<"\n\n___________________________________________________\n";
-    cout<<"\n Total Amount : "<<total;
+    cout<<"\n\n_________________________________________________________________________________________\n";
+    cout<<"\n Total Amount : "<<total<<"\n";
 }
 
 int main(){
