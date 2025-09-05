@@ -1,6 +1,8 @@
 #include<iostream>
 #include<fstream>
+
 using namespace std;
+
 class shopping{
     // Declaring the functions
     private:
@@ -366,4 +368,5 @@ int main(){
     shopping s;     //creating the object of shopping class
     s.menu();       //Since, menu() function contains all the function , we only call the menu() function
 }
+
 
