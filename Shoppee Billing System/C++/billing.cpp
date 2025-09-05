@@ -5,7 +5,7 @@ class shopping{
     // Declaring the functions
     private:
         int pcode;           //product code
-        float price;          
+        float price;         //product price
         float dis;           //discount on the product
         string pname;        //product name
     
@@ -366,3 +366,4 @@ int main(){
     shopping s;     //creating the object of shopping class
     s.menu();       //Since, menu() function contains all the function , we only call the menu() function
 }
+
