@@ -12,6 +12,7 @@ class shopping{
         string pname;        //product name
     
     public:
+        //function declarations
         void menu();
         void administrator();
         void buyer();
